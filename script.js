@@ -1,5 +1,6 @@
+
 /* ============================================================
-   1. UI LOGIC (NAV)
+   1. NAVIGATION
    ============================================================ */
 const navToggle = document.getElementById('navToggle');
 const primaryNav = document.getElementById('primary-nav');
@@ -20,7 +21,7 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
    ============================================================ */
 const SUPABASE_URL = 'https://ypqdqmufpivadajfdray.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlwcWRxbXVmcGl2YWRhamZkcmF5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE1NTc4MjcsImV4cCI6MjEwNzEzMzgyN30.fLRevN6W6OdH5TFutZxJD3k-649Uqip7LelX3SaD0qc';
-const EMAILJS_PUBLIC_KEY = 'tcFhpPs9jeUwD9LbjID'; 
+const EMAILJS_PUBLIC_KEY = 'h4RUt-gFhN2E5xoVx';
 const EMAILJS_SERVICE_ID = 'service_zs9ztak';
 const EMAILJS_TEMPLATE_ID = 'template_77xb6gk';
 
@@ -29,53 +30,30 @@ if (window.supabase) supabaseClient = window.supabase.createClient(SUPABASE_URL,
 if (window.emailjs) emailjs.init(EMAILJS_PUBLIC_KEY);
 
 /* ============================================================
-   3. AI BOT LOGIC
+   3. DYNAMIC PUBLIC PROGRESS BAR (Target: 1000)
    ============================================================ */
-const aiFab = document.getElementById('aiFab'), aiPanel = document.getElementById('aiPanel');
-const aiClose = document.getElementById('aiClose'), aiMessages = document.getElementById('aiMessages');
-const aiForm = document.getElementById('aiForm'), aiInput = document.getElementById('aiInput');
-
-if (aiFab && aiPanel) {
-  aiFab.addEventListener('click', () => {
-    aiPanel.hidden = !aiPanel.hidden;
-    if(!aiPanel.hidden && !aiMessages.children.length) addMsg('Hi! I am the Alpha AI assistant. Ask me about joining, fees, or requirements!', 'bot');
-  });
-  aiClose.addEventListener('click', () => aiPanel.hidden = true);
-
-  function addMsg(text, who) {
-    const div = document.createElement('div'); div.className = 'ai-msg ' + who; div.textContent = text;
-    aiMessages.appendChild(div); aiMessages.scrollTop = aiMessages.scrollHeight;
-  }
+async function updatePublicProgress() {
+  if (!supabaseClient) return;
+  const { count, error } = await supabaseClient.from('members').select('*', { count: 'exact', head: true });
   
-  aiForm.addEventListener('submit', e => {
-    e.preventDefault(); const text = aiInput.value.trim(); if(!text) return;
-    addMsg(text, 'user'); aiInput.value = '';
+  if (!error && count !== null) {
+    const target = 1000;
+    const percentage = Math.min((count / target) * 100, 100).toFixed(1);
     
-    setTimeout(() => {
-      const q = text.toLowerCase();
-      let reply = 'I am still learning! Please contact Joy on 0704 785 116 for specific questions.';
-      
-      if(q.includes('join') || q.includes('apply') || q.includes('register')) {
-        reply = 'To join, scroll down to the Member Portal, fill out the "Apply Now" form, and make sure to pay the 1000 KES fee.';
-      } else if(q.includes('fee') || q.includes('cost') || q.includes('pay') || q.includes('1000')) {
-        reply = 'The registration fee is 1000 KES. You must confirm payment in the application form before submitting.';
-      } else if(q.includes('require') || q.includes('need') || q.includes('18')) {
-        reply = 'You must be 18 years or older and have a valid Kenyan National ID to apply.';
-      } else if(q.includes('code') || q.includes('login') || q.includes('dashboard')) {
-        reply = 'Once you apply and pay, you will receive a unique Membership Code (e.g., AYG-XXXXX). Use that code in the Login tab to access your dashboard.';
-      } else if(q.includes('where') || q.includes('location')) {
-        reply = 'We are based in Voi, Taita Taveta County, Kenya.';
-      } else if(q.includes('hello') || q.includes('hi') || q.includes('hey')) {
-        reply = 'Hello! How can I help you today? Ask me about joining Alpha Youth.';
-      }
-      
-      addMsg(reply, 'bot');
-    }, 600);
-  });
+    const fill = document.getElementById('progressFill');
+    const text = document.getElementById('progressText');
+    const pctText = document.getElementById('targetPercentage');
+    
+    if(fill) fill.style.width = percentage + '%';
+    if(text) text.textContent = `${count} / 1,000 members`;
+    if(pctText) pctText.textContent = percentage + '%';
+  }
 }
+// Run on load
+document.addEventListener('DOMContentLoaded', updatePublicProgress);
 
 /* ============================================================
-   4. PORTAL & ROLE MANAGEMENT LOGIC
+   4. PORTAL & DASHBOARD LOGIC
    ============================================================ */
 const tabApply = document.getElementById('tabApply');
 const tabLogin = document.getElementById('tabLogin');
@@ -91,18 +69,13 @@ if (tabApply && tabLogin) {
     tabApply.classList.remove('active');
     tabLogin.classList.remove('active');
     
-    if(tab === 'apply') {
-      applySection.classList.add('active');
-      tabApply.classList.add('active');
-    } else if(tab === 'login') {
-      loginSection.classList.add('active');
-      tabLogin.classList.add('active');
-    }
+    if(tab === 'apply') { applySection.classList.add('active'); tabApply.classList.add('active'); } 
+    else { loginSection.classList.add('active'); tabLogin.classList.add('active'); }
   }
   tabApply.addEventListener('click', () => switchTab('apply'));
   tabLogin.addEventListener('click', () => switchTab('login'));
 
-  // Handle Registration
+  // --- REGISTRATION ---
   document.getElementById('applyForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     if (!supabaseClient) return alert("Database connection failed.");
@@ -132,40 +105,45 @@ if (tabApply && tabLogin) {
 
     const code = 'AYG-' + Math.random().toString(36).substring(2, 7).toUpperCase();
 
+    // Save to DB
     const { data, error } = await supabaseClient
       .from('members')
       .insert([{ full_name: name, email: email, national_id: id, dob: dobValue, membership_code: code, role: roleValue }]);
 
     if (error) {
-      if (error.code === '23505') err.textContent = 'This National ID is already registered.';
-      else err.textContent = 'Error: ' + error.message;
+      err.textContent = error.code === '23505' ? 'This National ID is already registered.' : 'Error: ' + error.message;
       err.style.display = 'block';
       btn.textContent = 'Submit Application';
       btn.disabled = false;
       return;
     } 
 
+    // Send Email
     try {
       if (window.emailjs) {
         await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
           to_name: name, to_email: email, membership_code: code,
-          dashboard_link: window.location.origin + window.location.pathname + "#join"
+          dashboard_link: window.location.href
         });
       }
-      success.textContent = 'Registration successful! Check your email for your code.';
+      success.textContent = 'Registration successful! Your Membership Code has been sent to your email.';
       success.style.display = 'block';
-      setTimeout(() => showDashboard(name, code, roleValue, "Registration Successful!"), 1500);
+      document.getElementById('applyForm').reset();
+      updatePublicProgress(); // Update progress bar instantly!
     } catch (emailError) {
-      success.textContent = 'Registration successful! (Email failed, check your code below).';
+      console.error(emailError);
+      alert("Email delivery failed. Reason: " + (emailError.text || emailError.message));
+      success.textContent = 'Registration saved, but email failed. Contact us at info@alphayouthgroup.co.ke';
       success.style.display = 'block';
-      setTimeout(() => showDashboard(name, code, roleValue, "Registration Successful!"), 1500);
+      document.getElementById('applyForm').reset();
+      updatePublicProgress();
     }
     
     btn.textContent = 'Submit Application';
     btn.disabled = false;
   });
 
-  // Handle Login
+  // --- LOGIN ---
   document.getElementById('loginForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     if (!supabaseClient) return alert("Database connection failed.");
@@ -180,56 +158,82 @@ if (tabApply && tabLogin) {
 
     const { data, error } = await supabaseClient
       .from('members')
-      .select('full_name, membership_code, role')
+      .select('full_name, role')
       .eq('membership_code', inputCode)
       .single();
 
     if (error || !data) {
-      err.textContent = 'Invalid Membership Code. Check and try again.';
+      err.textContent = 'Invalid Membership Code.';
       err.style.display = 'block';
       btn.textContent = 'Log In';
       btn.disabled = false;
     } else {
       btn.textContent = 'Log In';
       btn.disabled = false;
-      showDashboard(data.full_name, data.membership_code, data.role, "Welcome back!");
+      showDashboard(data.full_name, data.role, "Welcome back!");
     }
   });
 }
 
-// --- SHOW DASHBOARD APP (ROLE ROUTER) ---
-function showDashboard(name, code, role, msg) {
+// --- SHOW DASHBOARD ---
+function showDashboard(name, role, msg) {
   applySection.classList.remove('active');
   loginSection.classList.remove('active');
   document.querySelector('.portal-tabs').style.display = 'none'; 
-  
   dashboardSection.classList.add('active');
 
-  // Hide ALL dashboards by default
   document.getElementById('memberDashboard').style.display = 'none';
   document.getElementById('chairmanDashboard').style.display = 'none';
   document.getElementById('secretaryDashboard').style.display = 'none';
   document.getElementById('treasurerDashboard').style.display = 'none';
 
-  // Fill in basic info
-  if(document.getElementById('dashTitle')) document.getElementById('dashTitle').textContent = `Welcome, ${name.split(' ')[0]}!`;
-  if(document.getElementById('dashMessage')) document.getElementById('dashMessage').textContent = msg;
-  if(document.getElementById('dashCode')) document.getElementById('dashCode').textContent = code;
+  document.getElementById('dashTitle').textContent = `Welcome, ${name.split(' ')[0]}!`;
+  document.getElementById('dashMessage').textContent = msg;
 
-  // ROUTING LOGIC
   const displayRole = role || 'Member';
-  
   if (displayRole === 'Chairman') {
     document.getElementById('chairmanDashboard').style.display = 'block';
+    loadChairmanData();
   } 
   else if (displayRole === 'Secretary') {
     document.getElementById('secretaryDashboard').style.display = 'block';
+    loadSecretaryData();
   } 
   else if (displayRole === 'Treasurer') {
     document.getElementById('treasurerDashboard').style.display = 'block';
+    loadTreasurerData();
   } 
   else {
     document.getElementById('memberDashboard').style.display = 'block';
+  }
+}
+
+// --- FETCH REAL DATA ---
+async function loadChairmanData() {
+  const { count, error } = await supabaseClient.from('members').select('*', { count: 'exact', head: true });
+  if (!error) document.getElementById('realMemberCount').textContent = count;
+}
+
+async function loadSecretaryData() {
+  const list = document.getElementById('recentMembersList');
+  list.innerHTML = '<li>Loading...</li>';
+  const { data, error } = await supabaseClient.from('members').select('full_name, role').order('created_at', { ascending: false }).limit(5);
+  
+  list.innerHTML = '';
+  if (!error && data && data.length > 0) {
+    data.forEach(m => {
+      list.innerHTML += `<li>${m.full_name} <span style="color: var(--primary); font-size: 0.75rem;">${m.role}</span></li>`;
+    });
+  } else {
+    list.innerHTML = '<li>No members found.</li>';
+  }
+}
+
+async function loadTreasurerData() {
+  const { count, error } = await supabaseClient.from('members').select('*', { count: 'exact', head: true });
+  if (!error) {
+    const total = count * 1000;
+    document.getElementById('realTotalFees').textContent = 'KES ' + total.toLocaleString();
   }
 }
 
