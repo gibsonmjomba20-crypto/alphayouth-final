@@ -7,32 +7,31 @@
 <meta name="theme-color" content="#0a0a0f">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<!-- SUPABASE SDK -->
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+<!-- SUPABASE & EMAILJS SDKs -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<!-- EMAILJS SDK -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<!-- CUSTOM CSS -->
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header class="site-header" id="siteHeader">
+<header class="site-header">
   <div class="container header-inner">
     <a href="#home" class="brand">
-      <span class="brand-mark">
-        <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="23" fill="none" stroke="currentColor" stroke-width="2" opacity=".35"/><circle cx="24" cy="24" r="10" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="24" y1="4" x2="24" y2="10"/><line x1="24" y1="38" x2="24" y2="44"/><line x1="4" y1="24" x2="10" y2="24"/><line x1="38" y1="24" x2="44" y2="24"/><line x1="10" y1="10" x2="14" y2="14"/><line x1="34" y1="34" x2="38" y2="38"/><line x1="38" y1="10" x2="34" y2="14"/><line x1="14" y1="34" x2="10" y2="38"/></g></svg>
+      <span class="logo-icon">A</span>
+      <span class="brand-text">
+        <strong>ALPHA YOUTH</strong>
+        <small>Together We Rise and Shine!</small>
       </span>
-      <span class="brand-text"><strong>Alpha Youth Group</strong><small>Voi &middot; Taita Taveta &middot; Kenya</small></span>
     </a>
-    <button class="nav-toggle" id="navToggle" aria-expanded="false"><span></span><span></span><span></span></button>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
     <nav class="primary-nav" id="primary-nav">
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#vision">Vision</a></li>
-        <li><a href="#coast">Coast Region</a></li>
-        <li><a href="#future">Our Plan</a></li>
-        <li><a href="#values">Values</a></li>
+        <li><a href="#future">Plan</a></li>
         <li><a href="#join" class="nav-cta">Join Us</a></li>
       </ul>
     </nav>
@@ -40,233 +39,387 @@
 </header>
 
 <main>
+  <!-- HERO SECTION -->
   <section class="hero" id="home">
-    <div class="hero-grid-bg"></div><div class="hero-glow"></div><div class="hero-glow hero-glow-2"></div>
-    <div class="container hero-inner">
-      <div class="hero-copy">
-        <p class="eyebrow reveal"><span class="dot"></span>Based in Voi &middot; Taita Taveta County &middot; Kenya</p>
-        <h1 class="reveal">Together We Rise<br><span class="grad">and Shine!</span></h1>
-        <p class="lead reveal">Building Today's Youth. Shaping Tomorrow's Future.</p>
-        <p class="hero-text reveal">Alpha Youth Group is a youth empowerment movement creating meaningful opportunities for young people and contributing to the social and economic development of our communities. Founded on unity. Driven by purpose. Built for generations.</p>
-        <div class="hero-actions reveal">
-          <a href="#join" class="btn btn-primary">Join the movement <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a href="#vision" class="btn btn-ghost">Explore our vision</a>
-        </div>
-        <ul class="hero-stats reveal">
-          <li><strong data-count="500" data-suffix="+">0</strong><span>Member goal</span></li>
-          <li><strong data-count="8">0</strong><span>Future pillars</span></li>
-          <li><strong data-count="7">0</strong><span>Core values</span></li>
-          <li><strong data-count="6">0</strong><span>Coast counties</span></li>
-        </ul>
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    
+    <div class="container hero-content">
+      <div class="badge reveal">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Taita Taveta, Kenya • 18+ Only
       </div>
-      <div class="hero-art reveal">
-        <div class="sun"><div class="sun-rays"></div><div class="sun-core"></div></div>
-        <div class="orbit orbit-1"></div><div class="orbit orbit-2"></div>
-        <span class="badge b1">Unity</span><span class="badge b2">Purpose</span><span class="badge b3">Innovation</span><span class="badge b4">Service</span>
+      
+      <h1 class="reveal">WELCOME TO<br>ALPHA YOUTH<br>GROUP</h1>
+      
+      <h2 class="gold-subtitle reveal">Together We Rise and Shine!</h2>
+      
+      <p class="hero-desc reveal">A movement of young people in Taita Taveta united to build a brighter future. We empower our members through financial literacy, community projects, and welfare support.</p>
+      
+      <div class="important-box reveal">
+        <strong>Important:</strong> The full member dashboard is locked. You must complete your application, pay the registration fee, and receive your unique Member Code to gain access.
+      </div>
+
+      <div class="hero-buttons reveal">
+        <a href="#join" class="btn btn-primary">Apply to Join &rarr;</a>
+        <a href="#join" class="btn btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          See Requirements
+        </a>
       </div>
     </div>
   </section>
 
+  <!-- ABOUT SECTION -->
   <section class="section section-dark" id="about">
     <div class="container">
-      <div class="section-head reveal"><p class="eyebrow"><span class="dot"></span>Who we are</p><h2>A movement built by young people, for young people</h2><p class="section-sub">We believe young people are not simply the leaders of tomorrow&mdash;they are innovators, entrepreneurs, volunteers, problem-solvers, and community builders <em>today</em>.</p></div>
+      <div class="section-head reveal">
+        <h2>About Alpha Youth</h2>
+      </div>
       <div class="about-grid">
         <div class="about-text reveal">
-          <p>Welcome to Alpha Youth Group, a youth empowerment movement based in Voi, Taita Taveta County, Kenya, with a vision to create meaningful opportunities for young people and contribute to the social and economic development of our communities.</p>
           <p>Alpha Youth Group exists to bring young people together around a shared purpose: creating opportunities, developing potential, strengthening communities, and building a future in which every young person has the chance to contribute and grow.</p>
           <p>Our ambition goes beyond building a membership organisation. We envision Alpha becoming a trusted platform where young people can connect, exchange ideas, develop skills, organise community initiatives, and work together to solve challenges affecting their generation.</p>
-          <p class="about-closing">Our home is Voi. Our roots are in Taita Taveta. Our vision reaches across the Coast Region and, ultimately, throughout Kenya.</p>
+          <p class="highlight-text">Our home is Voi. Our roots are in Taita Taveta. Our vision reaches across the Coast Region and, ultimately, throughout Kenya.</p>
         </div>
-        <div class="about-cards reveal">
-          <div class="img-wrapper" style="margin-bottom: 1rem; aspect-ratio: 4/3;">
-            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80" alt="Youth group collaborating" loading="lazy">
-          </div>
-          <article class="pillar-card"><span class="pillar-icon">01</span><h3>Founded on unity</h3><p>Cooperation makes us stronger. We grow when we grow together.</p></article>
+        <div class="about-img reveal">
+          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80" alt="Youth group collaborating">
         </div>
       </div>
     </div>
   </section>
 
+  <!-- VISION & MISSION -->
   <section class="section section-darker" id="vision">
     <div class="container">
-      <div class="section-head reveal"><p class="eyebrow"><span class="dot"></span>Vision &amp; Mission</p><h2>Where we are going, and how we get there</h2></div>
+      <div class="section-head reveal">
+        <h2>Vision &amp; Mission</h2>
+      </div>
       <div class="vm-grid">
-        <article class="vm-card reveal"><div class="vm-tag">Our Vision</div><h3>Connecting, empowering and inspiring young people across Kenya.</h3><p>To become a recognised, trusted, and impactful youth movement that connects, empowers, and inspires young people across Kenya to create sustainable opportunities and contribute to national development.</p><p>We envision a future where young people from different communities, backgrounds, and professions can come together through Alpha to learn from one another, build meaningful relationships, develop solutions, and create lasting change.</p><p class="vm-note" style="font-style:italic; color:var(--text-muted);">We want Alpha to stand for more than membership. We want it to represent opportunity, responsibility, innovation, unity, and hope.</p></article>
-        <article class="vm-card vm-card-alt reveal"><div class="vm-tag">Our Mission</div><h3>Empowering young people with practical, lasting capability.</h3><p>Our mission is to empower young people through financial literacy, entrepreneurship, education, leadership development, community service, innovation, and member welfare initiatives.</p><p>We aim to create a supportive environment where members can discover their strengths, share their ideas, develop practical skills, and participate in initiatives that improve their lives and communities.</p><p class="vm-note" style="font-style:italic; color:var(--text-muted);">Through responsible leadership, partnerships, volunteerism, and transparent management, we intend to build an organisation that can grow sustainably and serve its members with integrity.</p></article>
+        <div class="vm-card reveal">
+          <div class="vm-tag">Our Vision</div>
+          <h3>Connecting, empowering and inspiring young people across Kenya.</h3>
+          <p>To become a recognised, trusted, and impactful youth movement that connects, empowers, and inspires young people across Kenya to create sustainable opportunities and contribute to national development.</p>
+          <p>We envision a future where young people from different communities, backgrounds, and professions can come together through Alpha to learn from one another, build meaningful relationships, develop solutions, and create lasting change.</p>
+        </div>
+        <div class="vm-card reveal" style="--d: 0.1s;">
+          <div class="vm-tag">Our Mission</div>
+          <h3>Empowering young people with practical, lasting capability.</h3>
+          <p>Our mission is to empower young people through financial literacy, entrepreneurship, education, leadership development, community service, innovation, and member welfare initiatives.</p>
+          <p>We aim to create a supportive environment where members can discover their strengths, share their ideas, develop practical skills, and participate in initiatives that improve their lives and communities.</p>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- COAST REGION -->
   <section class="section section-dark" id="coast">
     <div class="container">
       <div class="coast-grid">
         <div class="coast-copy reveal">
-          <p class="eyebrow"><span class="dot"></span>Why Alpha matters to the Coast Region</p>
-          <h2>Talent is everywhere. Access is not.</h2>
-          <p>The Coast Region has young people with talent, creativity, ambition, and ideas capable of creating positive change. However, opportunities to connect, learn, collaborate, and develop those ideas may not always be easy to access.</p>
-          <p><strong class="highlight">Alpha Youth Group wants to help bridge that gap.</strong></p>
-          <p>Beginning in Voi, we aim to build a strong foundation in Taita Taveta and gradually develop connections with young people in other parts of the Coast Region as our capacity grows. Our long-term ambition is to establish connections with young people throughout Kenya, creating a network through which members can share knowledge, identify opportunities, support community initiatives, and collaborate across counties.</p>
-          <p class="coast-quote">When young people work together, local ideas can grow into regional opportunities, and regional cooperation can contribute to national development.</p>
-        </div>
-        <div class="reveal">
-          <div class="img-wrapper" style="margin-bottom: 1.5rem; aspect-ratio: 16/9;">
-            <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=800&q=80" alt="Coast region landscape" loading="lazy">
+          <div class="section-head" style="text-align: left; margin-bottom: 1.5rem;">
+            <h2>Talent is everywhere. Access is not.</h2>
           </div>
-          <ul class="county-list">
-            <li class="home"><span class="county-name">Taita Taveta</span><span class="county-tag">Our home &middot; Voi</span></li>
-            <li><span class="county-name">Mombasa</span><span class="county-tag">Growing network</span></li>
-            <li><span class="county-name">Kilifi</span><span class="county-tag">Growing network</span></li>
-            <li><span class="county-name">Kwale</span><span class="county-tag">Growing network</span></li>
-            <li><span class="county-name">Tana River</span><span class="county-tag">Growing network</span></li>
-            <li><span class="county-name">Lamu</span><span class="county-tag">Growing network</span></li>
-            <li class="future"><span class="county-name">Kenya</span><span class="county-tag">Long-term vision</span></li>
+          <p>The Coast Region has young people with talent, creativity, ambition, and ideas capable of creating positive change. However, opportunities to connect, learn, collaborate, and develop those ideas may not always be easy to access.</p>
+          <p><strong class="highlight-text">Alpha Youth Group wants to help bridge that gap.</strong></p>
+          <p>Beginning in Voi, we aim to build a strong foundation in Taita Taveta and gradually develop connections with young people in other parts of the Coast Region as our capacity grows. Our long-term ambition is to establish connections with young people throughout Kenya, creating a network through which members can share knowledge, identify opportunities, support community initiatives, and collaborate across counties.</p>
+        </div>
+        <div class="county-list reveal" style="--d: 0.1s;">
+          <h3>Our Growing Network</h3>
+          <ul>
+            <li class="home"><span>Taita Taveta</span> <span class="tag">Our Home</span></li>
+            <li><span>Mombasa</span> <span class="tag">Growing</span></li>
+            <li><span>Kilifi</span> <span class="tag">Growing</span></li>
+            <li><span>Kwale</span> <span class="tag">Growing</span></li>
+            <li><span>Tana River</span> <span class="tag">Growing</span></li>
+            <li><span>Lamu</span> <span class="tag">Growing</span></li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section section-darker dream" id="dream">
+  <!-- 500 DREAM -->
+  <section class="section section-darker" id="dream">
     <div class="container dream-inner">
-      <div class="dream-number reveal"><strong data-count="500">0</strong><span>members and beyond</span></div>
+      <div class="dream-number reveal">
+        <strong>500</strong>
+        <span>members and beyond</span>
+      </div>
       <div class="dream-copy reveal">
-        <p class="eyebrow"><span class="dot"></span>Our Dream</p>
-        <h2>Every great movement begins with people who believe in a common vision.</h2>
+        <div class="section-head" style="text-align: left; margin-bottom: 1.5rem;">
+          <h2>Our Dream</h2>
+        </div>
         <p>Alpha Youth Group aims to build a community of 500 members and continue growing from there. We want each member to be more than a name on a registration list. We want members to have opportunities to participate, contribute ideas, learn, volunteer, and help shape the organisation's future.</p>
         <p>Imagine a network of young people working together on community projects, developing business ideas, learning financial skills, supporting vulnerable members, and building relationships that open doors to new possibilities.</p>
-        <p class="dream-closing" style="color:var(--purple-300); font-weight:600; font-size:1.1rem;">500 members can be the beginning. A connected generation can be the legacy.</p>
+        <p class="highlight-text" style="font-family: var(--font-italic); font-size: 1.2rem; margin-top: 1rem;">500 members can be the beginning. A connected generation can be the legacy.</p>
       </div>
     </div>
   </section>
 
+  <!-- 8 PILLARS -->
   <section class="section section-dark" id="future">
     <div class="container">
-      <div class="section-head reveal"><p class="eyebrow"><span class="dot"></span>The future we want to build</p><h2>Eight pillars of the Alpha movement</h2></div>
+      <div class="section-head reveal">
+        <h2>The Future We Want to Build</h2>
+      </div>
       <div class="program-grid">
-        <article class="program-card reveal"><span class="program-num">01</span><h3>Alpha Enterprise &amp; Entrepreneurship</h3><p>Encouraging entrepreneurship, business education, innovation, and responsible financial planning.</p></article>
-        <article class="program-card reveal"><span class="program-num">02</span><h3>Alpha Skills &amp; Digital Empowerment</h3><p>Training and learning opportunities in digital skills, technology, communication, leadership, and other practical areas.</p></article>
-        <article class="program-card reveal"><span class="program-num">03</span><h3>Alpha Community Development</h3><p>Community initiatives such as environmental conservation, tree planting, clean-up campaigns, and education support.</p></article>
-        <article class="program-card reveal"><span class="program-num">04</span><h3>Alpha Connect Kenya</h3><p>Connecting young people from different counties through networking events, youth forums, mentorship, and collaborative projects.</p></article>
-        <article class="program-card reveal"><span class="program-num">05</span><h3>Alpha Care &amp; Member Welfare</h3><p>A responsible welfare initiative helping eligible members facing approved emergencies&mdash;subject to clear rules and accountability.</p></article>
-        <article class="program-card reveal"><span class="program-num">06</span><h3>Alpha Leadership Academy</h3><p>Developing responsible young leaders through mentorship, public speaking, teamwork, and ethical leadership.</p></article>
-        <article class="program-card reveal"><span class="program-num">07</span><h3>Alpha Opportunities Network</h3><p>Building relationships with educational institutions, businesses, and employers to explore opportunities for training and mentorship.</p></article>
-        <article class="program-card reveal"><span class="program-num">08</span><h3>Alpha Annual Youth Forum</h3><p>A platform for young people to meet, discuss challenges, share ideas, showcase projects, and celebrate achievements.</p></article>
+        <div class="program-card reveal"><span class="num">01</span><h3>Enterprise &amp; Entrepreneurship</h3><p>Encouraging entrepreneurship, business education, innovation, and responsible financial planning.</p></div>
+        <div class="program-card reveal"><span class="num">02</span><h3>Skills &amp; Digital Empowerment</h3><p>Training in digital skills, technology, communication, and leadership to prepare young people for the future.</p></div>
+        <div class="program-card reveal"><span class="num">03</span><h3>Community Development</h3><p>Initiatives such as environmental conservation, tree planting, clean-ups, and education support.</p></div>
+        <div class="program-card reveal"><span class="num">04</span><h3>Connect Kenya</h3><p>Connecting young people from different counties through networking events, forums, and collaborative projects.</p></div>
+        <div class="program-card reveal"><span class="num">05</span><h3>Care &amp; Member Welfare</h3><p>A responsible welfare initiative helping eligible members facing approved emergencies.</p></div>
+        <div class="program-card reveal"><span class="num">06</span><h3>Leadership Academy</h3><p>Developing responsible young leaders through mentorship, public speaking, and ethical leadership.</p></div>
+        <div class="program-card reveal"><span class="num">07</span><h3>Opportunities Network</h3><p>Building relationships with institutions, businesses, and employers to explore training and mentorship.</p></div>
+        <div class="program-card reveal"><span class="num">08</span><h3>Annual Youth Forum</h3><p>A platform to meet, discuss challenges, share ideas, showcase projects, and celebrate achievements.</p></div>
       </div>
     </div>
   </section>
 
+  <!-- VALUES -->
   <section class="section section-darker" id="values">
     <div class="container">
-      <div class="section-head reveal"><p class="eyebrow"><span class="dot"></span>Our values</p><h2>What we stand for</h2></div>
+      <div class="section-head reveal">
+        <h2>What We Stand For</h2>
+      </div>
       <div class="value-grid">
-        <article class="value-card reveal"><span class="value-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></span><h3>Unity</h3><p>We believe that cooperation makes us stronger.</p></article>
-        <article class="value-card reveal"><span class="value-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Integrity</h3><p>We aim to act honestly, responsibly, and transparently.</p></article>
-        <article class="value-card reveal"><span class="value-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg></span><h3>Empowerment</h3><p>We believe in helping young people develop their abilities.</p></article>
-        <article class="value-card reveal"><span class="value-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M12 2a7 7 0 0 0-4 12.7V18h8v-3.3A7 7 0 0 0 12 2z"/></svg></span><h3>Innovation</h3><p>We encourage ideas, creativity, and practical solutions.</p></article>
-        <article class="value-card reveal"><span class="value-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M8 13V5a2 2 0 1 1 4 0v6"/><path d="M12 11V4a2 2 0 1 1 4 0v7"/><path d="M16 11V6a2 2 0 1 1 4 0v9a6 6 0 0 1-6 6h-2a7 7 0 0 1-7-7v-3a2 2 0 1 1 4 0"/></svg></span><h3>Service</h3><p>We believe positive change begins when people contribute.</p></article>
-        <article class="value-card reveal"><span class="value-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span><h3>Accountability</h3><p>We use resources responsibly and communicate openly.</p></article>
-        <article class="value-card reveal"><span class="value-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><circle cx="9" cy="8" r="3.2"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17.5" cy="9.5" r="2.5"/><path d="M15 20a5 5 0 0 1 6-4.9"/></svg></span><h3>Inclusivity</h3><p>A respectful environment where eligible members can contribute.</p></article>
+        <div class="value-card reveal"><h3>Unity</h3><p>We believe that cooperation makes us stronger.</p></div>
+        <div class="value-card reveal"><h3>Integrity</h3><p>We aim to act honestly, responsibly, and transparently.</p></div>
+        <div class="value-card reveal"><h3>Empowerment</h3><p>We believe in helping young people develop their abilities.</p></div>
+        <div class="value-card reveal"><h3>Innovation</h3><p>We encourage ideas, creativity, and practical solutions.</p></div>
+        <div class="value-card reveal"><h3>Service</h3><p>We believe positive change begins when people contribute.</p></div>
+        <div class="value-card reveal"><h3>Accountability</h3><p>We use resources responsibly and communicate openly.</p></div>
+        <div class="value-card reveal"><h3>Inclusivity</h3><p>A respectful environment where members can contribute.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="section section-dark" id="commitment">
+  <!-- PORTAL / JOIN SECTION -->
+  <section class="section section-dark" id="join">
     <div class="container">
-      <div class="commit-grid">
-        <div class="commit-copy reveal">
-          <p class="eyebrow"><span class="dot"></span>Our commitment to the future</p>
-          <h2>Words are not enough. We intend to show our work.</h2>
-          <p>We recognise that a meaningful future cannot be built through words alone. It requires planning, committed leadership, active members, sound financial management, responsible partnerships, and projects that respond to real community needs.</p>
-          <p>We want our achievements to speak for us. We want our members to take pride in their contribution. We want our communities to see the value of young people working together for a common purpose.</p>
-          <p class="about-closing">Our journey begins in Voi, but our aspirations are not limited by geography.</p>
-        </div>
-        <ul class="commit-list reveal">
-          <li>Establish clear governance procedures</li>
-          <li>Publish appropriate activity and financial reports</li>
-          <li>Measure the impact of our projects</li>
-          <li>Build partnerships based on trust</li>
-          <li>Use resources responsibly and transparently</li>
-          <li>Grow sustainably, with members at the centre</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-join" id="join">
-    <div class="container join-inner">
-      <div class="join-copy reveal">
-        <p class="eyebrow"><span class="dot"></span>A call to young people across Kenya</p>
-        <h2>There is a place for your ambition in the future we want to build.</h2>
-        <p>You may be a student, an entrepreneur, a creative thinker, a professional, a volunteer, or someone still discovering your path. What matters is your willingness to learn, contribute, and work responsibly with others.</p>
-        <p>Let us connect our ideas. Let us develop our skills. Let us build our communities. Let us create opportunities that reach beyond our immediate surroundings.</p>
-        <p style="color:var(--purple-300); font-weight:600; margin-top:1.5rem;">Alpha Youth Group &mdash; from Voi to Taita Taveta, from the Coast Region to a connected Kenya.</p>
-
-        <div class="img-wrapper reveal" style="margin: 2rem 0; aspect-ratio: 16/9;">
-          <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80" alt="Youth connecting and working" loading="lazy">
-        </div>
-
-        <ul class="contact-list">
-          <li><span class="contact-label">Contact person</span><span class="contact-value">Joy</span></li>
-          <li><span class="contact-label">Phone</span><a href="tel:+254704785116" class="contact-value" style="color:var(--purple-300);">0704 785 116</a></li>
-          <li><span class="contact-label">Location</span><span class="contact-value">Voi, Taita Taveta County</span></li>
-        </ul>
-        <div class="contact-actions" style="max-width:300px;">
-          <a href="tel:+254704785116" class="btn btn-primary btn-block">Call Joy now</a>
-          <a href="https://wa.me/254704785116" target="_blank" class="btn btn-ghost btn-block">Message on WhatsApp</a>
-        </div>
+      <div class="section-head reveal">
+        <h2>Member Portal</h2>
+        <p class="section-sub">Apply for membership or log in to your dashboard.</p>
       </div>
 
-      <!-- INLINE AUTH CARD -->
-      <div class="auth-card reveal">
-        <div class="portal-tabs">
-          <button class="tab-btn active" id="tabApply">Apply Now</button>
-          <button class="tab-btn" id="tabLogin">Member Login</button>
-        </div>
-
-        <div id="applySection" class="portal-section active">
-          <h2>Join Alpha Youth</h2>
-          <p class="portal-desc">Requirements: Must be 18+, have a valid National ID, and pay the 1000 KES registration fee.</p>
-          
-          <form id="applyForm">
-            <div class="form-group"><label>Full Name</label><input type="text" id="fullName" required placeholder="John Doe"></div>
-            <div class="form-group"><label>Email Address</label><input type="email" id="email" required placeholder="john@example.com"></div>
-            <div class="form-group"><label>National ID Number</label><input type="text" id="nationalId" required placeholder="12345678"></div>
-            <div class="form-group"><label>Date of Birth (Must be 18+)</label><input type="date" id="dob" required></div>
-            <div class="checkbox-group">
-              <input type="checkbox" id="feePaid" required>
-              <label for="feePaid">I confirm I have paid the <strong>1000 KES</strong> registration fee.</label>
-            </div>
-            <div id="applyError" class="error-msg"></div>
-            <div id="applySuccess" class="success-msg"></div>
-            <button type="submit" class="btn btn-primary btn-block" id="applyBtn">Submit Application</button>
-          </form>
-        </div>
-
-        <div id="loginSection" class="portal-section">
-          <h2>Member Login</h2>
-          <p class="portal-desc">Enter your Membership Code to access your dashboard.</p>
-          
-          <form id="loginForm">
-            <div class="form-group">
-              <label>Membership Code</label>
-              <input type="text" id="loginCode" required placeholder="AYG-XXXXX" style="text-transform: uppercase;">
-            </div>
-            <div id="loginError" class="error-msg"></div>
-            <button type="submit" class="btn btn-primary btn-block" id="loginBtn">Log In</button>
-          </form>
-        </div>
-
-        <div id="dashboardSection" class="portal-section">
-          <div class="success-icon">✓</div>
-          <h2 id="dashTitle">Welcome!</h2>
-          <p id="dashMessage" class="portal-desc"></p>
-          
-          <div class="dash-card">
-            <span>Your Membership Code</span>
-            <strong id="dashCode" style="font-size: 1.5rem; color: var(--purple-400); letter-spacing: 2px;">AYG-00000</strong>
+      <div class="join-grid">
+        <div class="join-contact reveal">
+          <h3 style="margin-bottom: 1rem;">Get in Touch</h3>
+          <p>Have questions before applying? Reach out to our team.</p>
+          <ul class="contact-list">
+            <li><span>Contact Person</span> <strong>Joy</strong></li>
+            <li><span>Phone</span> <a href="tel:+254704785116">0704 785 116</a></li>
+            <li><span>Location</span> <strong>Voi, Taita Taveta County</strong></li>
+          </ul>
+          <div style="margin-top: 2rem;">
+            <a href="tel:+254704785116" class="btn btn-secondary" style="margin-bottom: 0.5rem; display: block; text-align: center;">Call Joy now</a>
+            <a href="https://wa.me/254704785116" target="_blank" class="btn btn-secondary" style="display: block; text-align: center; border-color: #22c55e; color: #22c55e;">Message on WhatsApp</a>
           </div>
-          
-          <button onclick="resetPortal()" class="btn btn-ghost btn-block" style="margin-top: 1.5rem;">Back to Home</button>
+        </div>
+
+        <!-- Auth Card -->
+        <div class="auth-card reveal">
+          <div class="portal-tabs">
+            <button class="tab-btn active" id="tabApply">Apply Now</button>
+            <button class="tab-btn" id="tabLogin">Member Login</button>
+          </div>
+
+          <!-- APPLICATION FORM -->
+          <div id="applySection" class="portal-section active">
+            <h3 style="margin-bottom: 1rem; color: #fff;">Join Alpha Youth</h3>
+            
+            <form id="applyForm">
+              <div class="form-group"><label>Full Name</label><input type="text" id="fullName" required placeholder="John Doe"></div>
+              <div class="form-group"><label>Email Address</label><input type="email" id="email" required placeholder="john@example.com"></div>
+              <div class="form-group"><label>National ID Number</label><input type="text" id="nationalId" required placeholder="12345678"></div>
+              <div class="form-group"><label>Date of Birth (Must be 18+)</label><input type="date" id="dob" required></div>
+              
+              <!-- ROLE SELECTION -->
+              <div class="form-group">
+                <label>Desired Role</label>
+                <select id="role" required>
+                  <option value="Member">Standard Member</option>
+                  <option value="Chairman">Chairman</option>
+                  <option value="Secretary">Secretary</option>
+                  <option value="Treasurer">Treasurer</option>
+                </select>
+              </div>
+
+              <div class="checkbox-group">
+                <input type="checkbox" id="feePaid" required>
+                <label for="feePaid">I confirm I have paid the <strong>1000 KES</strong> registration fee.</label>
+              </div>
+              <div id="applyError" class="error-msg"></div>
+              <div id="applySuccess" class="success-msg"></div>
+              <button type="submit" class="btn btn-primary btn-block" id="applyBtn">Submit Application</button>
+            </form>
+          </div>
+
+          <!-- LOGIN FORM -->
+          <div id="loginSection" class="portal-section">
+            <h3 style="margin-bottom: 1rem; color: #fff;">Member Login</h3>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.9rem;">Enter your Membership Code to access your dashboard.</p>
+            
+            <form id="loginForm">
+              <div class="form-group">
+                <label>Membership Code</label>
+                <input type="text" id="loginCode" required placeholder="AYG-XXXXX" style="text-transform: uppercase;">
+              </div>
+              <div id="loginError" class="error-msg"></div>
+              <button type="submit" class="btn btn-primary btn-block" id="loginBtn">Log In</button>
+            </form>
+          </div>
+
+          <!-- DASHBOARD APP ROUTER -->
+          <div id="dashboardSection" class="portal-section">
+            
+            <!-- 1. CHAIRMAN DASHBOARD -->
+            <div id="chairmanDashboard" style="display: none;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem;">
+                <h3 style="color: var(--gold); margin: 0;">Chairman's Office</h3>
+                <span style="font-size: 0.75rem; background: rgba(168,85,247,0.2); padding: 4px 8px; border-radius: 4px; color: #d8b4fe;">Admin</span>
+              </div>
+              <div class="chairman-grid">
+                <div class="c-card">
+                  <h4>1,000 Youth Project</h4>
+                  <div style="background: #333; height: 8px; border-radius: 4px; margin: 10px 0;"><div style="background: var(--primary); width: 65%; height: 100%; border-radius: 4px;"></div></div>
+                  <span style="font-size: 0.85rem; color: #fff;">650 / 1,000 Members</span>
+                </div>
+                <div class="c-card">
+                  <h4>Pending Approvals</h4>
+                  <ul class="c-list">
+                    <li>Strategic Plan 2025 <button class="c-btn approve">Approve</button></li>
+                    <li>Budget Request <button class="c-btn approve">Approve</button></li>
+                  </ul>
+                </div>
+                <div class="c-card">
+                  <h4>Financial Summary</h4>
+                  <ul class="c-list">
+                    <li>Total Revenue <span style="color: #22c55e;">KES 450,000</span></li>
+                    <li>Total Expenses <span style="color: #ef4444;">KES 120,000</span></li>
+                    <li>Balance <span style="color: #22c55e;">KES 330,000</span></li>
+                  </ul>
+                </div>
+                <div class="c-card">
+                  <h4>Executive Officers</h4>
+                  <ul class="c-list">
+                    <li>Secretary <span style="color: #22c55e;">Active</span></li>
+                    <li>Treasurer <span style="color: #fbbf24;">Pending Report</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. SECRETARY DASHBOARD -->
+            <div id="secretaryDashboard" style="display: none;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem;">
+                <h3 style="color: var(--gold); margin: 0;">Secretary's Office</h3>
+                <span style="font-size: 0.75rem; background: rgba(168,85,247,0.2); padding: 4px 8px; border-radius: 4px; color: #d8b4fe;">Admin</span>
+              </div>
+              <div class="chairman-grid">
+                <div class="c-card">
+                  <h4>Attendance Register</h4>
+                  <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">Last Meeting: 45/60 Present</p>
+                  <button class="c-btn review" style="width: 100%; padding: 8px;">Mark Today's Attendance</button>
+                </div>
+                <div class="c-card">
+                  <h4>Meeting Minutes</h4>
+                  <ul class="c-list">
+                    <li>Draft: Feb Meeting <span style="color: #fbbf24;">Pending</span></li>
+                    <li>Final: Jan Meeting <span style="color: #22c55e;">Approved</span></li>
+                  </ul>
+                  <button class="c-btn review" style="width: 100%; margin-top: 10px; padding: 8px;">Create New Minutes</button>
+                </div>
+                <div class="c-card">
+                  <h4>Member Directory</h4>
+                  <ul class="c-list">
+                    <li>Total Members <span>650</span></li>
+                    <li>New Registrations <span style="color: #22c55e;">+35</span></li>
+                  </ul>
+                  <button class="c-btn review" style="width: 100%; margin-top: 10px; padding: 8px;">View All Members</button>
+                </div>
+                <div class="c-card">
+                  <h4>Notice Board</h4>
+                  <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">Draft an official memo for the Chairman to approve.</p>
+                  <button class="c-btn review" style="width: 100%; padding: 8px;">Draft Announcement</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. TREASURER DASHBOARD -->
+            <div id="treasurerDashboard" style="display: none;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem;">
+                <h3 style="color: var(--gold); margin: 0;">Treasurer's Office</h3>
+                <span style="font-size: 0.75rem; background: rgba(168,85,247,0.2); padding: 4px 8px; border-radius: 4px; color: #d8b4fe;">Admin</span>
+              </div>
+              <div class="chairman-grid">
+                <div class="c-card">
+                  <h4>Financial Overview</h4>
+                  <ul class="c-list">
+                    <li>Current Balance <span style="color: #22c55e;">KES 330,000</span></li>
+                    <li>Monthly Target <span>KES 50,000</span></li>
+                  </ul>
+                </div>
+                <div class="c-card">
+                  <h4>Registration Fees</h4>
+                  <ul class="c-list">
+                    <li>Total Collected <span>KES 650,000</span></li>
+                    <li>Pending Payments <span style="color: #fbbf24;">12</span></li>
+                  </ul>
+                  <button class="c-btn approve" style="width: 100%; margin-top: 10px; padding: 8px;">Record Payment</button>
+                </div>
+                <div class="c-card">
+                  <h4>Alpha Care Fund</h4>
+                  <ul class="c-list">
+                    <li>Current Fund <span>KES 15,000</span></li>
+                    <li>Disbursed <span>KES 5,000</span></li>
+                  </ul>
+                  <button class="c-btn review" style="width: 100%; margin-top: 10px; padding: 8px;">Manage Welfare Funds</button>
+                </div>
+                <div class="c-card">
+                  <h4>Expense Reports</h4>
+                  <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">Upload receipts and log expenses.</p>
+                  <button class="c-btn review" style="width: 100%; padding: 8px;">Log New Expense</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. STANDARD MEMBER DASHBOARD -->
+            <div id="memberDashboard" style="display: none;">
+              <div class="success-icon">✓</div>
+              <h2 id="dashTitle" style="color: #fff; text-align: center;">Welcome!</h2>
+              <p id="dashMessage" style="color: var(--text-muted); text-align: center; margin-bottom: 1.5rem;"></p>
+              
+              <div class="chairman-grid">
+                <div class="c-card">
+                  <h4>My Profile</h4>
+                  <ul class="c-list">
+                    <li>Role <span style="color: var(--primary); font-weight: bold;">Member</span></li>
+                    <li>Status <span style="color: #22c55e;">Active</span></li>
+                  </ul>
+                </div>
+                <div class="c-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                  <h4 style="margin-bottom: 10px;">Membership Code</h4>
+                  <strong id="dashCode" style="font-size: 1.2rem; color: var(--gold); letter-spacing: 2px; background: rgba(251,191,36,0.1); padding: 10px; border-radius: 8px; border: 1px dashed var(--gold);">AYG-00000</strong>
+                </div>
+                <div class="c-card">
+                  <h4>Announcements</h4>
+                  <ul class="c-list">
+                    <li>General Meeting <span style="font-size: 0.75rem; color: var(--text-muted);">Sat, 10AM</span></li>
+                    <li>Fees Deadline <span style="font-size: 0.75rem; color: #ef4444;">End of month</span></li>
+                  </ul>
+                </div>
+                <div class="c-card">
+                  <h4>Alpha Care</h4>
+                  <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">Need emergency assistance?</p>
+                  <button class="c-btn review" style="width: 100%; padding: 8px;">Request Support</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Log Out Button -->
+            <button onclick="resetPortal()" class="btn btn-secondary btn-block" style="margin-top: 1.5rem;">Log Out</button>
+          </div>
         </div>
       </div>
     </div>
@@ -274,51 +427,22 @@
 </main>
 
 <footer class="site-footer">
-  <div class="container footer-inner">
-    <div class="footer-brand">
-      <a href="#home" class="brand"><span class="brand-mark"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="23" fill="none" stroke="currentColor" stroke-width="2" opacity=".35"/><circle cx="24" cy="24" r="10" fill="currentColor"/></svg></span><span class="brand-text"><strong>Alpha Youth Group</strong><small>Together We Rise and Shine!</small></span></a>
-      <p class="footer-note" style="color:var(--text-muted); font-size:.9rem; margin-top:1rem;">Building Today's Youth. Shaping Tomorrow's Future.<br>Founded on unity. Driven by purpose. Built for generations.</p>
-    </div>
-    <nav class="footer-nav">
-      <h4 style="color:var(--purple-400); margin-bottom:1rem; font-size:.8rem; text-transform:uppercase;">Explore</h4>
-      <ul style="display:grid; gap:.6rem;">
-        <li><a href="#about">About Alpha</a></li>
-        <li><a href="#vision">Vision &amp; Mission</a></li>
-        <li><a href="#coast">Coast Region</a></li>
-        <li><a href="#future">Our Plan</a></li>
-      </ul>
-    </nav>
-    <div class="footer-contact">
-      <h4 style="color:var(--purple-400); margin-bottom:1rem; font-size:.8rem; text-transform:uppercase;">Get in touch</h4>
-      <ul style="display:grid; gap:.6rem; margin-bottom:1.5rem;">
-        <li><span style="color:var(--text-dim); font-size:.7rem; text-transform:uppercase;">Contact</span> Joy</li>
-        <li><span style="color:var(--text-dim); font-size:.7rem; text-transform:uppercase;">Phone</span> <a href="tel:+254704785116" style="color:var(--purple-300);">0704 785 116</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="container footer-bottom">
+  <div class="container footer-content">
     <p>&copy; <span id="year">2025</span> Alpha Youth Group. All rights reserved.</p>
     <p>Voi &middot; Taita Taveta &middot; Coast Region &middot; Kenya</p>
   </div>
 </footer>
 
-<button class="to-top" id="toTop" hidden>&uarr;</button>
-
 <!-- AI BOT -->
 <button class="ai-fab" id="aiFab" type="button" aria-expanded="false">
-  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 0 1-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5z"/></svg>
+  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 0 1-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5z"/></svg>
 </button>
 <section class="ai-panel" id="aiPanel" hidden>
   <header class="ai-head">
-    <div class="ai-id"><span class="ai-avatar">A</span><div><strong>Alpha AI</strong><small>Ask about membership</small></div></div>
+    <div class="ai-id"><span class="ai-avatar">A</span><div><strong>Alpha AI</strong><small>Ask me anything</small></div></div>
     <button class="ai-close" id="aiClose">&times;</button>
   </header>
   <div class="ai-messages" id="aiMessages"></div>
-  <div class="ai-quick" id="aiQuick">
-    <button data-q="How do I join?">How do I join?</button>
-    <button data-q="What programs do you have?">Programs</button>
-    <button data-q="Where are you based?">Location</button>
-  </div>
   <form class="ai-form" id="aiForm">
     <input id="aiInput" type="text" placeholder="Type a question..." autocomplete="off" maxlength="300">
     <button type="submit">&#10148;</button>
